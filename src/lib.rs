@@ -69,7 +69,7 @@ fn do_annealing<A: Annealer>(
     opt: &AnnealingOptions,
     seed: u64,
 ) -> (f64, <A as Annealer>::State) {
-    let mut rng = StdRng::seed_from_u64(seed);
+    let mut rng = SmallRng::seed_from_u64(seed);
 
     let mut state = annealer.init_state(&mut rng);
     let mut cur_score = annealer.eval(&state);
